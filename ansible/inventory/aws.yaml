@@ -1,33 +1,21 @@
 redhat:
   hosts:
     sleet:
-      os_rel: alma
-      release_ver: 9
       fs_list: "/data /opt/containers /opt/acme /etc /var/lib/docker/volumes /root"
 
     alcyone:
-      os_rel: alma
-      release_ver: 9
       fs_list: "/root /etc /var/lib/docker/swarm"
 
     atlas:
-      os_rel: alma
-      release_ver: 9
       fs_list: "/root /etc /var/lib/docker/swarm"
 
     electra:
-      os_rel: alma
-      release_ver: 9
       fs_list: "/root /etc /var/lib/docker/swarm"
 
     flake:
-      os_rel: alma
-      release_ver: 8
       fs_list: "/etc /opt /root /home /var/log /var/adm /var/db /var/mail /var/spool /var/lib"
 
     blizzard:
-      os_rel: alma
-      release_ver: 8
       fs_list: "/opt/containers /opt/acme /var/www /etc/nginx/conf.d"
 
 freebsd:
