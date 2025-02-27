@@ -1,0 +1,33 @@
+- name: Install standard Linux packages
+  hosts: all
+  gather_facts: false
+  become: true
+  become_user: root
+  become_method: ansible.builtin.sudo
+  tasks:
+    - name: Install packages
+      ansible.builtin.dnf:
+        name:
+          - git
+          - zsh
+          - python3
+          - tmux
+          - htop
+          - policycoreutils
+          - yum-utils
+          - nfs-utils
+        state: present
+        update_cache: true
+    - name: Add beacon user
+      ansible.builtin.user:
+        name: beacon
+        comment: Francis Beacon
+        uid: 992
+        group: wheel
+        password: $6$Z.07/qOtZ68JeGxv$XkTB.Uroyt3L.mJ30z7DQ1q6/QHzi6TcFFIG6xUDGY8ULaeaxB6epDW1ooJkPtdQ18M8H7L2KCJPRuTl.5DgB0
+        create_home: true
+    - name: Add SSH key for beacon
+      ansible.posix.authorized_key:
+        user: beacon
+        state: present
+        key: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFwJVuHO2B6aMy/JsDU2PN5DSzRECwgPwVC6cpGh/8fq'
