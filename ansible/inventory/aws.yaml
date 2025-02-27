@@ -15,6 +15,21 @@ redhat:
       release_ver: 9
       fs_list: "/root /etc /var/lib/docker/swarm"
 
+    alcyone:
+      os_rel: alma
+      release_ver: 9
+      fs_list: "/root /etc /var/lib/docker/swarm"
+
+    atlas:
+      os_rel: alma
+      release_ver: 9
+      fs_list: "/root /etc /var/lib/docker/swarm"
+
+    electra:
+      os_rel: alma
+      release_ver: 9
+      fs_list: "/root /etc /var/lib/docker/swarm"
+
     flake:
       os_rel: alma
       release_ver: 8
