@@ -5,16 +5,6 @@ redhat:
       release_ver: 9
       fs_list: "/data /opt/containers /opt/acme /etc /var/lib/docker/volumes /root"
 
-    castor:
-      os_rel: alma
-      release_ver: 9
-      fs_list: "/root /etc /var/lib/docker/swarm"
-
-    pollux:
-      os_rel: alma
-      release_ver: 9
-      fs_list: "/root /etc /var/lib/docker/swarm"
-
     alcyone:
       os_rel: alma
       release_ver: 9
@@ -54,8 +44,9 @@ bastions:
 
 docker:
   sleet:
-  castor:
-  pollux:
+  alcyone:
+  atlas:
+  electra:
 
 web:
   sleet:
