@@ -1,0 +1,50 @@
+- name: Install Docker
+  hosts: docker
+  gather_facts: false
+  become: true
+  become_user: root
+  become_method: ansible.builtin.sudo
+  tasks:
+    - name: Ensure SELinux is set to permissive mode for Docker
+      ansible.builtin.lineinfile:
+        path: /etc/selinux/config
+        regexp: '^SELINUX='
+        line: SELINUX=permissive
+    - name: Install the EPEL meta-package
+      ansible.builtin.dnf:
+        name: epel-release
+        state: present
+    - name: Remove podman/buildah
+      ansible.builtin.dnf:
+        name:
+          - podman
+          - buildah
+        state: absent
+    - name: Add repository
+      ansible.builtin.yum_repository:
+        name: epel
+        description: Docker CE Repo
+        baseurl: https://download.docker.com/linux/centos/docker-ce.repo
+    - name: Add Docker components
+      ansible.builtin.dnf:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+        update_cache: true
+    - name: Enable docker service
+      ansible.builtin.systemd_service:
+        name: docker
+        enabled: true
+    - name: Start docker service
+      ansible.builtin.systemd_service:
+        name: docker
+        state: started
+    - name: Add 'container' user
+      ansible.builtin.user:
+        name: container
+        uid: 1001
+        shell: /bin/bash
+        groups: docker
+        append: true
