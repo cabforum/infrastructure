@@ -3,22 +3,27 @@ redhat:
     sleet:
       os_rel: alma
       release_ver: 9
+      fs_list: "/data /opt/containers /opt/acme /etc /var/lib/docker/volumes /root"
 
     castor:
       os_rel: alma
       release_ver: 9
+      fs_list: "/root /etc /var/lib/docker/swarm"
 
     pollux:
       os_rel: alma
       release_ver: 9
+      fs_list: "/root /etc /var/lib/docker/swarm"
 
     flake:
       os_rel: alma
       release_ver: 8
+      fs_list: "/etc /opt /root /home /var/log /var/adm /var/db /var/mail /var/spool /var/lib"
 
     blizzard:
       os_rel: alma
       release_ver: 8
+      fs_list: "/opt/containers /opt/acme /var/www /etc/nginx/conf.d"
 
 freebsd:
   hosts:
@@ -28,3 +33,21 @@ freebsd:
     frost:
       ansible_python_interpreter: /usr/local/bin/python
       ansible_perl_interpreter: /usr/local/bin/perl
+
+bastions:
+  frost:
+
+docker:
+  sleet:
+  castor:
+  pollux:
+
+web:
+  sleet:
+  gemini:
+  blizzard:
+  frost:
+
+ssh:
+  frost:
+  gemini:
