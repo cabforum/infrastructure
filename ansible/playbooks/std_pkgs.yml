@@ -12,7 +12,6 @@
           - zsh
           - python3
           - tmux
-          - htop
           - policycoreutils
           - yum-utils
           - nfs-utils
