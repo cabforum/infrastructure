@@ -1,0 +1,30 @@
+redhat:
+  hosts:
+    sleet:
+      os_rel: alma
+      release_ver: 9
+
+    castor:
+      os_rel: alma
+      release_ver: 9
+
+    pollux:
+      os_rel: alma
+      release_ver: 9
+
+    flake:
+      os_rel: alma
+      release_ver: 8
+
+    blizzard:
+      os_rel: alma
+      release_ver: 8
+
+freebsd:
+  hosts:
+    gemini:
+      ansible_python_interpreter: /usr/local/bin/python
+      ansible_perl_interpreter: /usr/local/bin/perl
+    frost:
+      ansible_python_interpreter: /usr/local/bin/python
+      ansible_perl_interpreter: /usr/local/bin/perl
