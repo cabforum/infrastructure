@@ -13,6 +13,10 @@
       changed_when: needs_updates.stdout | length > 0
       notify:
         - Upgrade system
+      # This fixes python on Alma-8 boxes; we can take it out when they're replaced
+      # cf. https://forum.ansible.com/t/ansible-playbook-ansible-core-2-17-1-fails-on-target-with-python-3-9/6700/8
+      vars:
+        ansible_python_interpreter: /usr/libexec/platform-python
 
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
