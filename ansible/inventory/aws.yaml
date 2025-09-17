@@ -34,25 +34,30 @@ freebsd:
       ansible_perl_interpreter: /usr/local/bin/perl
 
 bastions:
-  frost:
+  hosts:
+    frost:
 
 docker_cluster:
-  alcyone:
-  atlas:
-  electra:
+  hosts:
+    alcyone:
+    atlas:
+    electra:
 
 non_cluster:
-  sleet:
-  blizzard:
-  member-tools:
-  member-dev:
+  hosts:
+    sleet:
+    blizzard:
+    member-tools:
+    member-dev:
 
 web:
-  sleet:
-  gemini:
-  blizzard:
-  frost:
+  hosts:
+    sleet:
+    gemini:
+    blizzard:
+    frost:
 
 ssh:
-  frost:
-  gemini:
+  hosts:
+    frost:
+    gemini:
