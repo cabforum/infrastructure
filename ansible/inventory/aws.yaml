@@ -22,7 +22,7 @@ redhat:
 
     blizzard:
       fs_list: "/opt/containers /opt/acme /var/www /etc/nginx/conf.d"
-      ansible_python_interpreter: /usr/bin/python3
+      ansible_python_interpreter: /usr/bin/python3.8
 
 freebsd:
   hosts:
