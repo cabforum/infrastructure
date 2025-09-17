@@ -24,6 +24,12 @@ redhat:
       fs_list: "/opt/containers /opt/acme /var/www /etc/nginx/conf.d"
       ansible_python_interpreter: /usr/bin/python3.8
 
+    member-tools:
+      ansible_python_interpreter: /usr/bin/python3
+
+    member-dev:
+      ansible_python_interpreter: /usr/bin/python3
+
 freebsd:
   hosts:
     gemini:
