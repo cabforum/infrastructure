@@ -2,21 +2,27 @@ redhat:
   hosts:
     sleet:
       fs_list: "/data /opt/containers /opt/acme /etc /var/lib/docker/volumes /root"
+      ansible_python_interpreter: /usr/bin/python3
 
     alcyone:
       fs_list: "/root /etc /var/lib/docker/swarm"
+      ansible_python_interpreter: /usr/bin/python3
 
     atlas:
       fs_list: "/root /etc /var/lib/docker/swarm"
+      ansible_python_interpreter: /usr/bin/python3
 
     electra:
       fs_list: "/root /etc /var/lib/docker/swarm"
+      ansible_python_interpreter: /usr/bin/python3
 
     flake:
       fs_list: "/etc /opt /root /home /var/log /var/adm /var/db /var/mail /var/spool /var/lib"
+      ansible_python_interpreter: /usr/bin/python3
 
     blizzard:
       fs_list: "/opt/containers /opt/acme /var/www /etc/nginx/conf.d"
+      ansible_python_interpreter: /usr/bin/python3
 
 freebsd:
   hosts:
@@ -30,8 +36,7 @@ freebsd:
 bastions:
   frost:
 
-docker:
-  sleet:
+docker_cluster:
   alcyone:
   atlas:
   electra:
