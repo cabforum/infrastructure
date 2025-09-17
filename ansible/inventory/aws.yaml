@@ -41,6 +41,12 @@ docker_cluster:
   atlas:
   electra:
 
+non_cluster:
+  sleet:
+  blizzard:
+  member-tools:
+  member-dev:
+
 web:
   sleet:
   gemini:
