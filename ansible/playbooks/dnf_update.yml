@@ -18,6 +18,10 @@
       vars:
         ansible_python_interpreter: /usr/libexec/platform-python
 
+    - name: Show check-update result
+      ansible.builtin.debug:
+        var: needs_updates
+
     - name: Flush handlers
       ansible.builtin.meta: flush_handlers
 
