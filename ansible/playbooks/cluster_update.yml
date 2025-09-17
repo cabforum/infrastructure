@@ -1,9 +1,10 @@
-- name: Update DNF-based Linux hosts
-  hosts: non_cluster
+- name: Update Docker-swarm Linux hosts
+  hosts: docker_cluster
   gather_facts: true
   become: true
   become_user: root
   become_method: ansible.builtin.sudo
+  serial: 1
   tasks:
     - name: Update package list
       ansible.builtin.command:
@@ -25,11 +26,10 @@
       failed_when: reboot_needed.rc == 10000
       notify:
         - Needs reboot
-        - Warn reboot is needed
 
-    - name: Wait for port 443 to become open on the host, don't start checking for 60 seconds
+    - name: Wait for management port (tcp/9001) to become open on the host; don't start checking for 60 seconds
       ansible.builtin.wait_for:
-        port: 443
+        port: 9001
         delay: 60
 
   handlers:
@@ -39,13 +39,7 @@
         name: '*'
       register: dnf_output
 
-    - name: Warn reboot is needed
-      ansible.builtin.debug:
-        msg: "WARNING: REBOOT NEEDED BUT CANNOT REBOOT SELF"
-      when: '"sleet" in inventory_hostname'
-
     - name: Needs reboot
       ansible.builtin.reboot:
         msg: 'WARNING: Host reboot to complete patching'
         connect_timeout: 180
-      when: '"sleet" not in inventory_hostname'
