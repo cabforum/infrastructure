@@ -1,5 +1,7 @@
 - name: Update Docker-swarm Linux hosts
   hosts: docker_cluster
+  # Randomly order hosts to distribute container loading
+  order: shuffle
   gather_facts: true
   become: true
   become_user: root
